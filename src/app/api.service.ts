@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 @Injectable({
@@ -7,10 +7,10 @@ import { map, tap } from 'rxjs/operators';
 })
 export class ApiService {
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   getLink$(): Observable<{url: string, name:string}[]> {
-    return this.http.get("/assets/links.json")
-               .pipe(tap(console.log), map(res => res.json()))
+    return this.http.get<{url: string, name:string}[]>("/assets/links.json")
+               //.pipe(tap(console.log), map(res => res.json()))
   }
 }
