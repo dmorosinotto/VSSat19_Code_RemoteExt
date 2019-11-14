@@ -1,0 +1,5 @@
+[
+    { "url": "https://angular.io/tutorial", "name": "Tour of Heroes" },
+    { "url": "https://github.com/angular/angular-cli/wiki", "name": "CLI Documentation" },
+    { "url": "https://blog.angular.io/", "name": "Angular blog" }
+]

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'legacy-ng6';
+  links = []
+  constructor(api: ApiService){
+    api.getLink$().subscribe(data => this.links = data);
+  }
 }

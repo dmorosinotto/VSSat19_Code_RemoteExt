@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+$bg: green;
+
+body{
+    font-family: 'Comic Sans MS', 'Times New Roman', Times, sans-serif, serif;
+    background: darken($bg,10%);
+}
