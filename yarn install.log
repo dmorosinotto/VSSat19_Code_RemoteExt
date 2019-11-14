@@ -1,18 +1,54 @@
-root@78a8757feff2:/workspaces/legacy-ng6# yarn
-yarn install v1.19.1
-info No lockfile found.
+Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+You can report issues at https://github.com/Microsoft/Oryx/issues
+
+Oryx Version      : 0.2.20191028.3, Commit: 9474e19db8cd77821d2d17444e26d1a4fdc2a006, ReleaseTagName: 20191028.3
+Build Operation ID: |KJnjzPPpxk0=.91464f52_
+Repository Commit : f0ed4e7860e2d2dc2705b44a29ef3efd3d132d7d
+
+
+Source directory     : /home/vsonline/workspace
+Destination directory: /home/vsonline/workspace
+
+
+Using Node version:
+v12.13.0
+
+Using Yarn version:
+1.17.3
+
+Configuring Yarn cache folder...
+yarn config v1.17.3
+success Set "cache-folder" to "/usr/local/share/yarn-cache".
+Done in 0.04s.
+
+Running 'yarn install --prefer-offline'...
+
+yarn install v1.17.3
 [1/4] Resolving packages...
-warning @angular/http@6.1.0: Switch to @angular/common/http - see https://angular.io/guide/http
-warning core-js@2.5.4: core-js@<2.6.8 is no longer maintained. Please, upgrade to core-js@3 or at least to actual version of core-js@2.
-warning @angular-devkit/build-angular > istanbul@0.4.5: This module is no longer maintained, try this instead:
-  npm i nyc
-Visit https://istanbul.js.org/integrations for other alternatives.
-warning @angular-devkit/build-angular > @angular-devkit/core > chokidar > fsevents@1.2.9: One of your dependencies needs to upgrade to fsevents v2: 1) Proper nodejs v10+ support 2) No more fetching binaries from AWS, smaller package size
-warning @angular/compiler-cli > chokidar > fsevents@1.2.9: One of your dependencies needs to upgrade to fsevents v2: 1) Proper nodejs v10+ support 2) No more fetching binaries from AWS, smaller package size
 [2/4] Fetching packages...
 info fsevents@1.2.9: The platform "linux" is incompatible with this module.
 info "fsevents@1.2.9" is an optional dependency and failed compatibility check. Excluding it from installation.
 [3/4] Linking dependencies...
 [4/4] Building fresh packages...
-success Saved lockfile.
-Done in 541.98s.
+Done in 61.74s.
+
+Running 'yarn run build'...
+
+yarn run v1.17.3
+$ ng build --prod
+
+Date: 2019-11-14T04:55:31.089Z
+Hash: f910bd28e4a1c6360f5e
+Time: 14472ms
+chunk {0} runtime.a66f828dca56eeb90e02.js (runtime) 1.05 kB [entry] [rendered]
+chunk {1} styles.6303b2fae710fc23decc.css (styles) 93 bytes [initial] [rendered]
+chunk {2} polyfills.d5379d17cbefa226f711.js (polyfills) 59.4 kB [initial] [rendered]
+chunk {3} main.bf70f5b20d410f271f5c.js (main) 193 kB [initial] [rendered]
+Done in 16.18s.
+
+Removing existing manifest file
+Creating a manifest file...
+Manifest file created.
+
+Done in 83 sec(s).
+                                                                                       

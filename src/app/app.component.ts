@@ -7,7 +7,7 @@ import { ApiService } from './api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'legacy-ng6';
+  title = 'legacy-ng6 on VSO';
   links = []
   constructor(api: ApiService){
     api.getLink$().subscribe(data => this.links = data);
