@@ -1,0 +1,147 @@
+-1) RICORDARSI DI AVVIARE DOCKER!!!
+Avviare per primo Docker altrimenti poi non parte (poca memoria)
+Aprire VSCODE e metter tema chiaro + disabilitare extension
++ Rimuovere recently open -> More -> elenco X = elimina!!!
++ Ricordarsi di spostare node_modules su cartella superiore GIT
+
+
+0) MI POSIZIONO SU PROGETTO E INIZIO LIVE (DA CMD -> PowerShell)
+cd GIT/VSSat19_Code_RemoteExt
+git branch demo
+git checkout -b live
+code .
+
+Mostrare ambiente: versione node&npm + node_modules VUOTA!!! + NON HO ng 
+package.json
+ls node_modules
+ng -v
+
+
+1) MOSTRO EXTENSION INSTALLATA -> Remote Container E AGGIUNGO CON WIZARD
+Ctrl+Shift+P
+Remote> Add Development Container Configuration File...
+Cerco/Scelgo Node8
+POI MOSTRO MESSAGGIO POPUP -> Reopen in Container 
+MA NON LO ESEGUO!!! Prima vado a mostrare i file devcontainer.json 
+(FALLBACK INIZIALE)	PS\VSSat19_Code_RemoteExt>	xcopy ..\D0\* .\devcontainer\ 
+PS: mostrare che immagine docker ho già scaricato:	docker images 
+E POI OK Reopen in Container
+> Rebuild Image -> mostro detail finchè fa il build...
+
+Una volta avviato il container e collegato con VSCode aprire Terminal 
+Ctrl+ò 		e mostrare versioni node/npm
+node -v  &&  npm -v
+Ricordare che processo di npm install è lungo quindi MUOVO i node_modules già fatti
+(estratti da node_modules_OK.zip -> ..\node_modules così evito di fare npm install in live
+PS\VSSat19_Code_RemoteExt>	mv ..\node_modules\ . 
+
+mostrare che i file si vedono anche nel container -> cartella proiettata
+ls -la node_modules
+
+e poi finalmente posso lancio progetto 
+npm start
+--> compila con ng serve
+
+quando ha finito cerco apro Browser http://localhost:4200 MA NON FUNZIONA
+-> Ragionamento su localhost = container -> mostro PORT FORWARDING da extension
+oppure clicco su http://localhost:4200 --> mostro APERTURA DINAMICA porta :XXXX
+e dimostro che è live e vero perchè vado a modificare file app.componenent.ts -> live reload 
+
+OK funziona tutto, ora fermiamo tutto CTRL+C CTRL+C per stoppare ng serve
+E faccio commit su GIT>	D0
+
+
+2) Ora mostro configurazione DOCKER personalizzata + ottimizzazione volume
+PRIMA RICORDARSI TOGLIERE node_modules E CREARE VOLUME!
+PS\VSSat19_Code_RemoteExt>	mv .\node_modules\ ..
+PS\VSSat19_Code_RemoteExt>	xcopy ..\D1\* .\.devcontainer\
+
+Mostro le modifiche con GIT al file .devcontainer\devcontainer.json
+FACCIO NOTARE AppPort -> "4200:4200"
+FACCIO NOTARE Volume -> per codice -> /workspace   +  slim-node_modules
+
+CHIUDO VSCODE e prima di riaprilo devo CREARE IL VOLUME E TOGLIERE node_modules
+PS\VSSat19_Code_RemoteExt>	mv .\node_modules\ ..
+PS\VSSat19_Code_RemoteExt>	docker create slim-node_modules
+
+APRO VISUALSTUDIO -> su cartella VSSat19_Code_RemoteExt
+-> mi avvia Reopen in Container
+--> mi avvisa fare Rebuild (perchè ho cambiato configurazione -> Devo fare Rebuild)
+devo attendere che rifaccia il build container...
+(se parto da zero creando volume devo rifare anche installazione node_modules -> 	yarn	)
+ 
+LANCIO npm start
+Mostro che porta 4200 è mappata ma non funziona?! Perchè non ho fatto binding su tutte NETWORK --> FIX -host:0.0.0.0
+modifico src/app/app.component.ts	title = "slim + volume"
+E faccio commit su GIT>	D1
+
+
+
+3) FIX DI TUTTO CON STEP SUCCESSIVO
+PS\VSSat19_Code_RemoteExt>	xcopy /S ..\D1.1\* .
+ATTENZIONE: A questo punto a volte si perde il riferimento alla node_modules e non funziona più npm start!!! 
+(IN CASO DA PS> rmdir node_modules 	E poi RIAPRIRE VSCode -> cartella VSSat19_Code_RemoteExt -> Reopen in container)
+npm start   OK --> Volume + HOST:4200
+E faccio commit su GIT> D1.1
+
+
+
+4) PROSSIMO STEP E' FARE CONFIGURAZIONE CON DOCKER COMPOSE
+Copio i file di configurazione docker-compose (mostro diff)
+PS\VSSat19_Code_RemoteExt>	xcopy ..\D2\* .\.devcontainer\
+CHIUDO VS CODE
+
+
+DEVO RIAPRIRLO E RIPARTIRE DA VSSat19_Code_RemoteExt
+-> mi avvisa Reopen in Container
+--> mi avvisa di fare Rebuild (perchè cambiato configurazione - Posso fare anche Ignore)
+devo attendere che faccia il Compose up + rebuild container
+dovrei vedere che mi fa anche docker volume per il compose
+
+(se parto da zero senza volume devo reinstallare node_modules ->	yarn	)
+npm start	OK --> porte/volume
+modifico src/app/app.component.ts	title = "Compose + auto"
+E faccio commit su GIT>	D2
+
+
+5) POSSO FARE FIX CODICE title su app.component.ts
+ATTENZIONE: A questo punto a volte si perde il riferimento alla node_modules e non funziona più npm start!!! 
+(IN CASO DA PS> rmdir node_modules 	E poi RIAPRIRE VSCode -> cartella VSSat19_Code_RemoteExt -> Reopen in container)
+PS\VSSat19_Code_RemoteExt>	xcopy /S ..\D2.2\* .
+E Faccio commit su GIT> D2.2
+
+
+
+6) FARE VEDERE DEBUG CON ext Chrome Debug --> ESTENSIONE Chrome Debug ADD/Enable! e poi
+F5 -> Configurazione -> modificare launch.json  cambiando porta localhost:4200 
+COPIARE CODICE E INSERIRE BREAKPOINT + LOGPOINT NRLINK={data}
+PS\VSSat19_Code_RemoteExt>	xcopy /S/H ..\D3\* .
+ATTENZIONE: A questo punto a volte si perde il riferimento alla node_modules e non funziona più npm start!!! 
+(IN CASO DA PS> rmdir node_modules 	E poi RIAPRIRE VSCode -> cartella VSSat19_Code_RemoteExt -> Reopen in container)
+Eseguire npm start <-- FA PARTIRE SITO
++ mostrare DEBUG F5 / F10...
+E Faccio commit su GIT> D3
+
+
+7) FAR VEDERE VSO	https://online.visualstudio.com
+- Login su VSO
+- Creo Environment my-1st-vso clonando repository dmorosinotto/VSSat19_Code_RemoteExt
+- Quando finisce provisioning mi collego tramite Browser (-> VSCode online)
+- Mostro che sono su Linux (> umane  &&  cat /etc/os-release) 
+e che grazie a Oryx ha fatto discovery e auto installazione di Node + node_modules
+- Eseguo npm start -> e poi vado a CTRL+click su link terminal http:\\localhost:4200
+che mi apre nuovo tab su browser che si collega url dinamico xyz-4200 <-- redirect live OK
+- Poi dimostro che posso fare upgrade del progetto ad NG8 
+> GIT checkout -b vso
+> npm i -g @angular/cli
+> ng update @angular/cli
+> GIT commit "update CLI"		
+> ng update @angular/core
+Mostro errore migrazione per problema Http @deprecate -> fix codice Http -> HttpClient
+> GIT commit "fix Http"
+Finisco migrazione con
+> ng update @angular/core --from 7 --to 8 --migrate-only
+> GIT commit "update core OK"
+E poi faccio GIT push verso REPO <-- faccio notare che funziona anche GIT da VSO/Browser!!
+
+- THE END -

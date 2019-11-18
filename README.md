@@ -1,3 +1,29 @@
+# VS Saturday 2019 - CODE REMOTE EXTENSION
+
+This is the Repo for our (my self:[Daniele](https://github.com/dmorosinotto) and my friend/buddy: [Davide](https://github.com/billiblu)) XE Session "CODE REMOTE EXTENSIONS" at VS Saturday Pordenone 16/11/2019
+
+You can find here our [SLIDES](VsSatPN19_VSCodeRemote.pptx) and material about [VS Code Remote Extension](https://code.visualstudio.com/docs/remote/remote-overview)
+
+And for the **DEMOS** you can find our source and _"live tracks" (in Italian)_ in the [DEMO](DEMO) sub-folder so you can try step-by-step to reproduce what we have shown in live session ^\_^
+
+Or simply click on the link below to jump on the branch with the end-result of our demos ;-)
+
+- Davide [DEMO](DEMO/Davide): [WSL](https://docs.microsoft.com/it-it/windows/wsl/install-win10) + Phython
+- Daniele [DEMO0](https://github.com/dmorosinotto/VSSat19_Code_RemoteExt/tree/0-default-node-8): WSL + Docker default
+- Daniele [DEMO1](https://github.com/dmorosinotto/VSSat19_Code_RemoteExt/tree/1-docker-slim+volume): WSL + DockerFile custom
+- Daniele [DEMO2](https://github.com/dmorosinotto/VSSat19_Code_RemoteExt/tree/2-docker-compose+auto): WSL + Docker Compose
+- Davide [BONUS](https://github.com/dmorosinotto/VSSat19_Code_RemoteExt/tree/3-vso-ng8-update): [VSO](https://online.visualstudio.com) + NG8 upgrade
+
+Hope you enjoy our Session, and if you have any request/suggestion please reach out to us on Twitter
+
+[Daniele](https://twitter.com/dmorosinotto) & [Davide](https://twitter.com/davidecontin)
+
+With our ❤️ for #community [XEdotnet](https://www.xedotnet.org)
+
+---
+
+---
+
 # LegacyNg6
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.0.
