@@ -8,10 +8,10 @@ And for the **DEMOS** you can find our source and _"live tracks" (in Italian)_ i
 
 Or simply click on the link below to jump on the branch with the end-result of our demos ;-)
 
-- Davide [DEMO](DEMO/Davide): [WSL](https://docs.microsoft.com/it-it/windows/wsl/install-win10) + Phython
-- Daniele [DEMO0](https://github.com/dmorosinotto/VSSat19_Code_RemoteExt/tree/0-default-node-8): WSL + Docker default
-- Daniele [DEMO1](https://github.com/dmorosinotto/VSSat19_Code_RemoteExt/tree/1-docker-slim+volume): WSL + DockerFile custom
-- Daniele [DEMO2](https://github.com/dmorosinotto/VSSat19_Code_RemoteExt/tree/2-docker-compose+auto): WSL + Docker Compose
+- Davide [DEMO](DEMO/DAVIDE): [WSL](https://docs.microsoft.com/it-it/windows/wsl/install-win10) + Python
+- Daniele [DEMO0](https://github.com/dmorosinotto/VSSat19_Code_RemoteExt/tree/0-default-node-8): Docker default devcontainer
+- Daniele [DEMO1](https://github.com/dmorosinotto/VSSat19_Code_RemoteExt/tree/1-docker-slim+volume): using custom DockerFile
+- Daniele [DEMO2](https://github.com/dmorosinotto/VSSat19_Code_RemoteExt/tree/2-docker-compose+auto): optimize Docker Compose
 - Davide [BONUS](https://github.com/dmorosinotto/VSSat19_Code_RemoteExt/tree/3-vso-ng8-update): [VSO](https://online.visualstudio.com) + NG8 upgrade
 
 Hope you enjoy our Session, and if you have any request/suggestion please reach out to us on Twitter
@@ -19,6 +19,10 @@ Hope you enjoy our Session, and if you have any request/suggestion please reach 
 [Daniele](https://twitter.com/dmorosinotto) & [Davide](https://twitter.com/davidecontin)
 
 With our ❤️ for #community [XEdotnet](https://www.xedotnet.org)
+
+| ![Photo1 of our Session](images/OurSession1.jpeg) | ![Photo2 of our Session](images/OurSession2.jpeg) |
+| ------------------------------------------------- | ------------------------------------------------- |
+| ![VS Saturday 2019 attendes](images/VSSat19.jpeg) | ![Speakers photo](images/Speakers.jpeg)           |
 
 ---
 
